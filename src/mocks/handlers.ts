@@ -8,9 +8,25 @@ export function buildUserNameFetch() {
     await delay(2000)
     return HttpResponse.json({
       id: 'user-id',
-      userName: 'user name',
+      name: 'user name',
     })
-    // return HttpResponse.json('not found', { status: 404 })
+  })
+}
+
+export function buildUserNameFetchLoading() {
+  return http.get(`${baseFirstUrl}/user`, async () => {
+    await delay('infinite')
+  })
+}
+
+export function buildUserNameFetchError() {
+  return http.get(`${baseFirstUrl}/user`, async () => {
+    await delay(200)
+    // client error
+    return HttpResponse.json('client error: not found', { status: 404 })
+    // server error
+    // return HttpResponse.json('server error: bad gateway', { status: 502 })
+    // network error
     // return HttpResponse.error()
   })
 }
@@ -20,9 +36,25 @@ export function buildUserDescriptionFetch() {
     await delay(2000)
     return HttpResponse.json({
       id: 'user-id',
-      userDescription: 'user description',
+      description: 'user description',
     })
-    // return HttpResponse.json('not found', { status: 404 })
+  })
+}
+
+export function buildUserDescriptionFetchLoading() {
+  return http.get(`${baseSecondUrl}/user`, async () => {
+    await delay('infinite')
+  })
+}
+
+export function buildUserDescriptionFetchError() {
+  return http.get(`${baseSecondUrl}/user`, async () => {
+    await delay(200)
+    // client error
+    return HttpResponse.json('not found', { status: 404 })
+    // server error
+    // return HttpResponse.json('server error: bad gateway', { status: 502 })
+    // network error
     // return HttpResponse.error()
   })
 }
