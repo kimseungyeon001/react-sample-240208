@@ -75,7 +75,7 @@ export async function fetchUserProfile(): Promise<UserProfile> {
       case 404:
         throw new Error('not found')
       default:
-        throw new Error('network error')
+        throw new Error('unexpected error')
     }
   }
 }
