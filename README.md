@@ -11,7 +11,7 @@ git clone https://github.com/kimseungyeon001/react-sample-240208.git
 access the project directory
 
 ```
-cd react-query-sample
+cd react-sample-240208
 ```
 
 install dependencies
